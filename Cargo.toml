@@ -1,0 +1,24 @@
+[package]
+name = "usb-serial"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+embassy-stm32 = { version = "0.4.0", features = [
+    "unstable-pac",
+    "memory-x",
+    "time-driver-tim2",
+    "exti",
+    "chrono",
+    "defmt",
+], optional = true }
+embassy-usb = { version = "0.5.1", features = []}
+embedded-io = { version = "0.6.0" }
+embedded-io-async = { version = "0.6.1" }
+static_cell = "2.1.1"
+embassy-futures = { version = "0.1.2" }
+
+[features]
+default = []
+rust_analyzer_convenience = ["embassy-stm32/stm32f411ce", "stm32"]
+stm32 = ["embassy-stm32"]
